@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --profileColor: lightgray;
+}
+
+$backgroundColor: rgba($color: #dddbd2, $alpha: 1.0);
+//$backgroundColor: var(--profileColor);
+$painelBackgroundColor: rgba(238, 238, 238, 0.95);
+$profileImageSize: 180px;
+$painelHeight: 90vh;
+$painelHeightMax: 700px;
+$profileImageTranslateY: $profileImageSize/10;
+$whiteBorder: 5px solid var(--profileColor);
+$containerWidth: 600px;
+$strongTextColor: rgb(51, 51, 51);
+$boxShadow: 0px 2px 4px 0px rgba(0,0,0,0.44);
+$amountColor: rgb(212, 185, 33);
+
+body {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.horizontal_box {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}

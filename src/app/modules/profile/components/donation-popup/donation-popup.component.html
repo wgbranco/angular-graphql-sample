@@ -1,0 +1,51 @@
+<div class="container">
+
+  <div class="horizontal_box status">
+    <div class='loader'
+      *ngIf="pendingDonation">
+    </div>
+
+    <i 
+      class="material-icons"
+      (click)="close($event)">
+      close
+    </i>
+  </div>
+      
+    <div class="spacer"></div>
+
+    <div>
+      <em 
+        *ngIf="pendingDonation || !donationSuccessful">
+          Help fund {{refugeeName}}
+      </em>
+
+      <em 
+        *ngIf="!pendingDonation && donationSuccessful">
+          Thank you for your support!
+      </em>
+    </div>
+    
+    <form
+      [formGroup]="form"
+      (ngSubmit)="donate($event)">
+      
+      <input
+        formControlName="donation"
+        type="number"
+        name="amount"
+        [disabled]='form.disabled'>
+
+      <button
+        type="submit"
+        class="donation"
+        [disabled]="!form.valid || form.disabled">
+
+        <div>
+            <i class="material-icons">how_to_vote</i>
+            <span>Donate</span>
+        </div>
+      </button>
+    </form>
+    
+</div>

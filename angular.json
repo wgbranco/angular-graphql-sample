@@ -9,7 +9,7 @@
       "projectType": "application",
       "prefix": "app",
       "schematics": {
-        "@schematics/angular:component": {
+        "@ngrx/schematics:component": {
           "styleext": "scss"
         }
       },
@@ -122,5 +122,8 @@
       }
     }
   },
-  "defaultProject": "angular-graphql-test"
+  "defaultProject": "angular-graphql-test",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

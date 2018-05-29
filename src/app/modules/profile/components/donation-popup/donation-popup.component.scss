@@ -1,0 +1,125 @@
+@import '../../../../../styles.scss';
+
+:host {
+    width: 35vw;
+    min-width: 400px;
+}
+
+.container, form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: rgba($color: #fff, $alpha: 0.9);
+    width: 100%;
+    padding: 15px;
+    margin: 0;
+    border: 1px solid white;
+    border-radius: 2%;
+    animation: showPopup 0.3s ease-in-out;
+}
+
+.status > i {
+    color: gray;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.spacer {
+    height: 35vh;
+}
+
+div > em {
+    font-size: 0.9em;
+}
+
+div > em:before, div > em:after {
+    content: ' — ';
+}
+
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 2px solid lightgray;
+    border-top: 4px solid gray;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+form {
+    width: 100%;
+    margin: 15px 0;
+    font-size: 0.8em;
+    color: gray;
+}
+
+input {
+    padding: 4px;
+    position: relative;
+    font-size: 1.4em;
+    font-style: italic;
+    text-align: center;
+    font-weight: 500;
+    color: $amountColor;
+    box-sizing: border-box;
+    background-color: inherit;
+    border-width: 1px;
+    border-style: hidden hidden solid hidden;
+    border-color: $amountColor;
+    margin-bottom: 40px;
+    animation-delay: 0.3s;
+    animation-name: showInput;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+}
+
+input:focus {
+    outline: none;
+}
+
+button.donation {
+    background-color: rgba($color: $amountColor, $alpha: 0.05);
+    border: 2px solid $amountColor;
+    border-radius: 5px;
+    color: $amountColor;
+    display: inline-block;
+    font-size: 1.2em;
+    cursor: pointer;
+    width: 80%;
+    animation-delay: 0.4s;
+    animation-name: showButton;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+
+    div {
+        display: flex;
+        align-items: center;
+    }
+
+    span {
+        margin: 0 auto;
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes showPopup {
+    from { opacity: 0.3; transform: translateY(25px); }
+    to { opacity: 1.0; transform: translateY(0); }
+}
+
+@keyframes showInput {
+    from { width: 10%; }
+    to { width: 80%; }
+}
+
+@keyframes showButton {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

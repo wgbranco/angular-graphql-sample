@@ -1,0 +1,99 @@
+<div class="container"
+    [ngClass]="showPopup ? 'darken' : ''">
+  
+  <div class="top-part">
+
+    <div class="img-background">
+
+      <!-- Profile picture -->
+      <div class="imgPlaceholder">
+        <img src="{{getImageSource()}}">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom-part">
+
+    <!-- Funding button -->
+    <div class="actions">
+        <button
+          class="donation"
+          (click)="displayPopup($event)"
+          [disabled]="getDonationBttnDisabled()">
+          <div>
+            <span>Donate!</span>
+            <i class="material-icons">how_to_vote</i>
+          </div>
+        </button>
+    </div>
+    
+    <!-- Refugee profile -->
+    <div class="profileContent">
+
+      <!-- Full name -->
+      <div class="name">
+        <span>{{ getFirstName() }} {{ getLastName() }}</span>
+      </div>
+
+      <!-- General info -->
+      <div class="info">
+
+        <!-- Country of origin -->
+        <div>
+          <i class="material-icons">location_on</i>
+          <span>{{ getOriginCountry() }}</span>
+        </div>
+
+        <!-- Amount raised -->
+        <div class="money">
+
+          <i class="material-icons">attach_money</i>
+          <span>{{ getAmountRaised() }} raised</span>
+        </div>
+
+        <!-- Phone number -->
+        <div>
+          <i class="material-icons">phone</i>
+          <span>{{ getPhone() }}</span>
+        </div>
+
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Bio -->
+      <div class="bio">
+          <div class="title">
+            <i class="material-icons">nature</i>
+          </div>
+          {{ getBio() }}
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Goals -->
+      <div class="goals">
+          <div class="title">
+            <i class="material-icons">wb_sunny</i>
+          </div>
+          {{ getGoals() }}
+      </div>
+
+    </div>  
+  </div>
+
+</div>
+
+<div class="overlay" 
+  [ngClass]="showPopup ? 'darken' : ''">
+
+  <donation-popup
+    [refugeeName]="getFirstName()"
+    [pending]="getPendingDonation()"
+    [donationSuccessful]="getUserDonatedTo()"
+    (click)="cancelClick($event)"
+    (submitted)="onMakeDonation($event)"
+    (closed)="hidePopup($event)">
+  </donation-popup>
+</div>

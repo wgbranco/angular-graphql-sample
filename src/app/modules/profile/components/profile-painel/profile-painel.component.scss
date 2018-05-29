@@ -1,0 +1,224 @@
+@import '../../../../../styles.scss';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    min-width: $containerWidth;
+    min-height: $painelHeight;
+    margin: auto;
+}
+
+.container.darken {
+    .name {
+        color: black;
+        transform: translateY(-70%);
+    }
+
+    .money {
+        transform: translateY(-140%);
+    }
+
+    .img, .imgPlaceholder, .name, .money, donation-popup {
+        z-index: 2;
+    }
+}
+
+.top-part {
+    background-color: var(--profileColor);
+    height: 0.3 * $painelHeight;
+    box-sizing: content-box;
+    margin-bottom: 5px;
+    box-shadow: $boxShadow;
+}
+
+.img-background {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,240, 0.5);
+    background: radial-gradient(circle, rgba(255,255,240,0.5) 0%, rgba(238,238,238,1) 98%);
+}
+
+.bottom-part {
+    min-height: 0.7 * $painelHeight;
+    background-color: $painelBackgroundColor;
+    padding-top: $profileImageTranslateY;
+    box-shadow: $boxShadow;
+}
+
+.divider {
+    width: 100%;
+    margin: 20px 0 20px 0;
+    // border-bottom: 2px solid $backgroundColor;
+    border-bottom: 1px solid rgba($color: #5a5a5a, $alpha: 0.2);
+    border-bottom-style: inset;
+}
+
+img, .imgPlaceholder {
+    position: relative;
+    width: $profileImageSize;
+    height: $profileImageSize;
+    border-radius: 50%;
+}
+
+.imgPlaceholder {
+    background-color: rgb(163, 163, 163);
+    transform: translateY($profileImageTranslateY);
+    // border: $whiteBorder;
+    box-shadow: $boxShadow;
+    transition: all 0.3s ease-out;
+}
+
+.profileContent {
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px 20px;
+}
+
+i {
+    padding: 0;
+    margin: 0 7px 0 0;
+}
+
+.actions, .name {
+    display: flex;
+    width: 100%;
+}
+
+.name {
+    font-size: 1.7em;
+    font-weight: 600;
+    color: $strongTextColor;
+    position: relative;
+    justify-content: center;
+}
+
+
+.info, .info > div {
+    display: flex;
+    align-content: center;
+}
+
+.info {
+    flex-direction: row;
+    font-size: 0.9em;
+    color: $strongTextColor;
+    margin: 30px 0 0 0;
+}
+
+.info > div {
+    flex: 1;
+}
+
+.info > div:nth-child(1) {
+    justify-content: flex-start;
+}
+.info > div:nth-child(2) {
+    justify-content: center;
+    
+    i {
+        margin: 0;
+    }
+}
+.info > div:nth-child(3) {
+    justify-content: flex-end;
+}
+
+.money {
+    color: $amountColor !important;
+    font-weight: 600;
+    font-size: 1.3em;
+    // transition: all 0.3s ease-out;
+}
+
+.bio, .goals {
+    display: flex;
+    flex-direction: row;
+    color: gray;
+    margin: 10px 0 10px 0;
+}
+
+.title {
+    font-weight: 600;
+    color: $strongTextColor;
+    min-width: 80px;
+}
+
+button.donation {
+    background-color: #4CAF50;
+    color: white;
+    margin: 0 20px 0 auto;
+    display: inline-block;
+    font-size: 0.9em;
+    text-transform: lowercase;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #4CAF50;
+    height: 40px;
+    box-shadow: $boxShadow;
+
+    div {
+        display: flex;
+        align-items: center;
+    }
+
+    span {
+        display: none;
+    }
+
+    i {
+        margin: 0;
+    }
+}
+
+button.donation:hover {
+    border-radius: 80px;
+
+    span {
+        display: inline;
+        margin: auto 10px;
+    }
+}
+
+button.donation:disabled {
+    background-color: gray;
+    border-color: gray;
+
+    span {
+        display: none;
+    }
+}
+
+.overlay {
+    display: none;
+}
+
+.overlay.darken {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba($color: #5a5a5a, $alpha: 0.85);
+    // filter: blur(1px);
+}
+
+donation-popup {
+    position: relative;
+    margin-bottom: 20vh;
+}
+
+@media screen and (max-width: $containerWidth) {
+    .container {
+        width: 100%;
+        min-width: auto;
+        min-height: auto;
+        margin: 0;
+    }
+}
